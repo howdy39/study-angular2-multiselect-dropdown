@@ -7,12 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { Case1Component } from './case1/case1.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Case2Component } from './case2/case2.component';
+import { ItemService } from './item.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Case1Component
+    Case1Component,
+    Case2Component
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    ItemService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
