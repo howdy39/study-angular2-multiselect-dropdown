@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-case1',
@@ -9,6 +10,8 @@ export class Case1Component implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+
+  formModel = {};
 
   constructor() { }
 
@@ -39,13 +42,19 @@ export class Case1Component implements OnInit {
       enableSearchFilter: true,
       classes: 'myclass custom-class'
     };
+
+    this.formModel ={
+      name: '',
+      email: 'ascasc@aa.com',
+      items: this.selectedItems
+    };
   }
 
   onItemSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);
   }
-  OnItemDeSelect(item: any) {
+  onItemDeSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);
   }
@@ -55,6 +64,9 @@ export class Case1Component implements OnInit {
   onDeSelectAll(items: any) {
     console.log(items);
   }
-
+  onSubmitForTemplateDrivenForms(form: NgForm) {
+    console.log(form);
+    console.log(form.value);
+  }
 
 }
