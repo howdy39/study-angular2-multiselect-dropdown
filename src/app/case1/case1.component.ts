@@ -41,18 +41,18 @@ export class Case1Component implements OnInit {
     };
   }
 
-  onItemSelect(item: any){
+  onItemSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);
   }
-  OnItemDeSelect(item: any){
+  OnItemDeSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);
   }
-  onSelectAll(items: any){
+  onSelectAll(items: any) {
     console.log(items);
   }
-  onDeSelectAll(items: any){
+  onDeSelectAll(items: any) {
     console.log(items);
   }
 
