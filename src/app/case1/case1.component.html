@@ -36,7 +36,11 @@
 
 <div class="content">
   <h2>Template Driven Forms support</h2>
-  <form (ngSubmit)="onSubmitForTemplateDrivenForms(loginForm)" #loginForm="ngForm">
+  <form (ngSubmit)="onSubmitForTemplateDrivenForms(form1)" #form1="ngForm">
+    <div class="form-group">
+      <label>name</label>
+      <input [(ngModel)]="formModel.name" name="name">
+    </div>
     <div class="form-group">
       <label>items</label>
       <angular2-multiselect [data]="dropdownList" [(ngModel)]="formModel.items" name="items"
@@ -45,6 +49,27 @@
                             (onDeSelect)="OnItemDeSelect($event)"
                             (onSelectAll)="onSelectAll($event)"
                             (onDeSelectAll)="onDeSelectAll($event)">
+      </angular2-multiselect>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="content">
+  <h2>Reactive Forms support</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForReactiveForms(form2)" #form2="ngForm">
+    <div class="form-group">
+      <label>name</label>
+      <input formControlName="name"> <!-- ngModelを指定していないと formControlNameを使用した片方向のバインディング-->
+    </div>
+    <div class="form-group">
+      <label>items</label>
+      <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" formControlName="items"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            (onDeSelect)="OnItemDeSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)"><!-- ngModelを指定していると ngModelを使用した双方向のバインディング-->
       </angular2-multiselect>
     </div>
     <button type="submit">Submit</button>

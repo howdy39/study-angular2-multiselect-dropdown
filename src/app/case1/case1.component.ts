@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-case1',
@@ -13,7 +13,11 @@ export class Case1Component implements OnInit {
 
   formModel = {};
 
-  constructor() { }
+  userForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
     this.dropdownList = [
@@ -43,11 +47,17 @@ export class Case1Component implements OnInit {
       classes: 'myclass custom-class'
     };
 
-    this.formModel ={
-      name: '',
-      email: 'ascasc@aa.com',
+    this.formModel = {
+      name: 'AAAA',
+      email: 'aaaa@example.com',
       items: this.selectedItems
     };
+
+    this.userForm = this.fb.group({
+      name: 'BBBB',
+      email: ['bbbb@example.com', Validators.required],
+      items: [this.selectedItems, Validators.required]
+    });
   }
 
   onItemSelect(item: any) {
@@ -67,6 +77,10 @@ export class Case1Component implements OnInit {
   onSubmitForTemplateDrivenForms(form: NgForm) {
     console.log(form);
     console.log(form.value);
+  }
+  onSubmitForReactiveForms(formGroupDirective: FormGroupDirective) {
+    console.log(formGroupDirective);
+    console.log(formGroupDirective.value);
   }
 
 }

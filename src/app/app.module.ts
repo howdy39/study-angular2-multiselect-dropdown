@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Case1Component } from './case1/case1.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularMultiSelectModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
