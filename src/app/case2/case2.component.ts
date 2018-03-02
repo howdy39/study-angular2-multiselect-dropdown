@@ -16,7 +16,11 @@ export class Case2Component implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.itemService.getItems().subscribe(items => this.dropdownList = items);
+    console.log('AAA');
+    setTimeout(() => {
+      console.log('BBB')
+      this.itemService.getItems().subscribe(items => this.dropdownList = items);
+    }, 3000);
 
     this.selectedItems = [
       {'id': 2, 'itemName': 'Singapore'},
