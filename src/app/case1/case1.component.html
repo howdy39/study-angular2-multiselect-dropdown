@@ -60,7 +60,7 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmitForReactiveForms(form2)" #form2="ngForm">
     <div class="form-group">
       <label>name</label>
-      <input formControlName="name"> <!-- ngModelを指定していないと formControlNameを使用した片方向のバインディング-->
+      <input formControlName="name">
     </div>
     <div class="form-group">
       <label>items</label>
@@ -70,6 +70,13 @@
                             (onDeSelect)="OnItemDeSelect($event)"
                             (onSelectAll)="onSelectAll($event)"
                             (onDeSelectAll)="onDeSelectAll($event)"><!-- ngModelを指定していると ngModelを使用した双方向のバインディング-->
+      </angular2-multiselect>
+      <angular2-multiselect [data]="dropdownList" formControlName="items"
+                            [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)"
+                            (onDeSelect)="OnItemDeSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)"><!-- ngModelを指定していないと formControlNameを使用した片方向のバインディング-->
       </angular2-multiselect>
     </div>
     <button type="submit">Submit</button>
