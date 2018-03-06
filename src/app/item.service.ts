@@ -10,6 +10,7 @@ export class ItemService {
 
   getItems(): Observable<Item[]> {
     const items: Item[] = [
+      {'id': 0, 'itemName': 'ALL'},
       {'id': 1, 'itemName': 'Japan'},
       {'id': 2, 'itemName': 'Singapore'},
       {'id': 3, 'itemName': 'Australia'},

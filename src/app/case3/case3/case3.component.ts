@@ -9,7 +9,8 @@ import { ItemService } from '../../item.service';
 export class Case3Component implements OnInit {
   dropdownList = [];
   selectedItems = [];
-  dropdownSettings = {};
+
+  dropdownSettings: Angular2MultiselectDropdownSettings = {};
 
   constructor(
     private itemService: ItemService
@@ -22,34 +23,66 @@ export class Case3Component implements OnInit {
       this.itemService.getItems().subscribe(items => this.dropdownList = items);
     }, 3000);
 
-    this.selectedItems = [
-      {'id': 2, 'itemName': 'Singapore'},
-      {'id': 3, 'itemName': 'Australia'},
-      {'id': 4, 'itemName': 'Canada'},
-      {'id': 5, 'itemName': 'South Korea'}
-    ];
     this.dropdownSettings = {
-      singleSelection: false,
       text: 'Select Countries',
       selectAllText: 'All',
       unSelectAllText: 'All',
+      singleSelection: false,
+      enableCheckAll: true,
+      enableSearchFilter: true,
     };
+
+    this.setDefaultSettings();
 
   }
 
   onItemSelect(item: any) {
-    console.log(item);
-    console.log(this.selectedItems);
+    console.log('onItemSelect');
+    if (item.itemName === 'ALL') {
+      this.setSelectedAllSettings();
+      this.selectedItems = this.selectedItems.filter((selectedItem) => {
+        return (selectedItem.itemName === 'ALL');
+      });
+    } else {
+      this.setDefaultSettings();
+    }
   }
   onItemDeSelect(item: any) {
-    console.log(item);
-    console.log(this.selectedItems);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
-  }
-  onDeSelectAll(items: any) {
-    console.log(items);
+    console.log('onItemDeSelect');
+    this.setDefaultSettings();
+    console.log(this.dropdownSettings);
   }
 
+  setSelectedAllSettings() {
+    console.log('setSelectedAllSettings');
+    this.dropdownSettings = {
+      limitSelection: 1,
+      singleSelection: true,
+      enableSearchFilter: false,
+    };
+  }
+
+  setDefaultSettings() {
+    console.log('setDefaultSettings');
+    this.dropdownSettings = {
+      text: 'Select Countries',
+      selectAllText: 'All',
+      unSelectAllText: 'All',
+      limitSelection: 20,
+      singleSelection: false,
+      enableCheckAll: false,
+      enableSearchFilter: true,
+    };
+  }
+
+}
+
+interface Angular2MultiselectDropdownSettings {
+  text?: string;
+  selectAllText?: string;
+  unSelectAllText?: string;
+  singleSelection?: boolean;
+  enableCheckAll?: boolean;
+  limitSelection?: number;
+  enableSearchFilter?: boolean;
 }
