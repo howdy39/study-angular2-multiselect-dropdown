@@ -9,13 +9,15 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Case2Component } from './case2/case2.component';
 import { ItemService } from './item.service';
+import { Case3Component } from './case3/case3/case3.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Case1Component,
-    Case2Component
+    Case2Component,
+    Case3Component
   ],
   imports: [
     BrowserModule,
