@@ -10,6 +10,7 @@ export class Case1Component implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+  dropdownSettingsForGroupBy = {};
 
   formModel = {};
 
@@ -21,22 +22,22 @@ export class Case1Component implements OnInit {
 
   ngOnInit() {
     this.dropdownList = [
-      {'id': 1, 'itemName': 'India'},
-      {'id': 2, 'itemName': 'Singapore'},
-      {'id': 3, 'itemName': 'Australia'},
-      {'id': 4, 'itemName': 'Canada'},
-      {'id': 5, 'itemName': 'South Korea'},
-      {'id': 6, 'itemName': 'Germany'},
-      {'id': 7, 'itemName': 'France'},
-      {'id': 8, 'itemName': 'Russia'},
-      {'id': 9, 'itemName': 'Italy'},
-      {'id': 10 , 'itemName': 'Sweden'}
+      {'id': 1, 'itemName': 'India', 'category': 'Asia'},
+      {'id': 2, 'itemName': 'Singapore', 'category': 'Asia'},
+      {'id': 3, 'itemName': 'Australia', 'category': 'Australia'},
+      {'id': 4, 'itemName': 'Canada', 'category': 'NorthAmerica'},
+      {'id': 5, 'itemName': 'South Korea', 'category': 'Asia'},
+      {'id': 6, 'itemName': 'Germany', 'category': 'Europe'},
+      {'id': 7, 'itemName': 'France', 'category': 'Europe'},
+      {'id': 8, 'itemName': 'Russia', 'category': 'Asia'},
+      {'id': 9, 'itemName': 'Italy', 'category': 'Europe'},
+      {'id': 10 , 'itemName': 'Sweden', 'category': 'Europe'}
     ];
     this.selectedItems = [
-      {'id': 2, 'itemName': 'Singapore'},
-      {'id': 3, 'itemName': 'Australia'},
-      {'id': 4, 'itemName': 'Canada'},
-      {'id': 5, 'itemName': 'South Korea'}
+      {'id': 2, 'itemName': 'Singapore', 'category': 'Asia'},
+      {'id': 3, 'itemName': 'Australia', 'category': 'Australia'},
+      {'id': 4, 'itemName': 'Canada', 'category': 'NorthAmerica'},
+      {'id': 5, 'itemName': 'South Korea', 'category': 'Asia'}
     ];
     this.dropdownSettings = {
       singleSelection: false,
@@ -45,6 +46,16 @@ export class Case1Component implements OnInit {
       unSelectAllText: 'UnSelect All',
       enableSearchFilter: true,
       classes: 'myclass custom-class'
+    };
+
+    this.dropdownSettingsForGroupBy = {
+      singleSelection: false,
+      text: 'Select Countries',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      classes: 'myclass custom-class',
+      groupBy: 'category',
     };
 
     this.formModel = {
