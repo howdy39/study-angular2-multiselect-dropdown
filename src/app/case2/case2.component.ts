@@ -10,6 +10,7 @@ export class Case2Component implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+  dropdownSettingsForGroupBy = {};
 
   constructor(
     private itemService: ItemService
@@ -35,6 +36,15 @@ export class Case2Component implements OnInit {
       unSelectAllText: 'UnSelect All',
       enableSearchFilter: true,
       classes: 'myclass custom-class'
+    };
+    this.dropdownSettingsForGroupBy = {
+      singleSelection: false,
+      text: 'Select Countries',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      classes: 'myclass custom-class',
+      groupBy: 'category',
     };
 
   }
