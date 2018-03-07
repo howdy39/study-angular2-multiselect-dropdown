@@ -23,15 +23,6 @@ export class Case3Component implements OnInit {
       this.itemService.getItems().subscribe(items => this.dropdownList = items);
     }, 3000);
 
-    this.dropdownSettings = {
-      text: 'Select Countries',
-      selectAllText: 'All',
-      unSelectAllText: 'All',
-      singleSelection: false,
-      enableCheckAll: true,
-      enableSearchFilter: true,
-    };
-
     this.setDefaultSettings();
 
   }
